@@ -1,0 +1,9 @@
+# Local configuration and build output
+backend/.env
+frontend/.env.local
+backend/target/
+frontend/.next/
+frontend/node_modules/
+*.log
+backend/.dev-reset-emails/
+
