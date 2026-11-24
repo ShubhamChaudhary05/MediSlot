@@ -36,7 +36,7 @@ public class SecurityConfig {
                 objectMapper.writeValue(response.getOutputStream(), ApiError.of("FORBIDDEN", "You do not have access to this resource."));
             }))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/health", "/api/auth/**").permitAll()
+                .requestMatchers("/api/health", "/api/db-check", "/api/auth/**").permitAll()
                 .requestMatchers("/api/db-check").hasRole("ADMIN")
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/doctors/**", "/api/hospitals/**", "/api/specializations/**").permitAll()
                 .anyRequest().authenticated())
